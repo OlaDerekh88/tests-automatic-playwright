@@ -10,13 +10,21 @@
 //// TODO:
 // here place your solution:
 
+const testType = 'integration tests';
+const testStatusPassed = 'passed';  
+const testStatusFailed = 'failed';
 
+let stringsWithSpace = testType + ' ' + testStatusFailed + ' ' + testStatusPassed;
 
+console.log(stringsWithSpace);
+console.log(`integration tests: ${testStatusFailed}`);
+console.log(`integration tests: ${testStatusPassed}`);
 
+// or
 
-
-
-
+console.log(testType + ' ' + testStatusFailed + ' ' + testStatusPassed);
+console.log(`${testType}: ${testStatusFailed}`);
+console.log(`${testType}: ${testStatusPassed}`);
 
 
 //// DONT MODIFY CODE BELOW!

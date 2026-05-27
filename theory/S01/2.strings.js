@@ -18,6 +18,7 @@ console.log('stringsWithSpace:', stringsWithSpace)
 
 // ...but You can concat strings with template literals:
 console.log(`Hello my dear ${string2}!`)
+console.log(`${string1} my dear ${string2}!`)
 // on console You will get:
 // Hello my dear World!!
 
