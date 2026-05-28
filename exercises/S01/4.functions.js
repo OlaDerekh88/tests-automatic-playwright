@@ -11,11 +11,21 @@
 
 //// TODO:
 // here place your solution:
+function joinStrings1(string1, string2, string3 = '!0') {
+    return string1 + ' ' + string2 + ' ' + string3
+};
 
+const result1 = joinStrings1('Hello', 'World');
+console.log(result1);
 
+// or
 
+function joinStrings2(string4, string5, string6 = '!') {
+    return `${string4} ${string5} ${string6}`
+};
 
-
+const result2 = joinStrings2('Hello', 'World');
+console.log(result2);
 
 
 
