@@ -13,9 +13,15 @@
 //// TODO:
 // here place your solution:
 
+function withTwoParameters(parameterOne, parameterTwo) {
+    return parameterOne * parameterTwo
+};
 
+const result = withTwoParameters(3, 7);
+console.log('Result of multiplication:', result);
 
-
+const result1 = withTwoParameters(5, 9);
+console.log('Result of multiplication:', result1);
 
 
 
