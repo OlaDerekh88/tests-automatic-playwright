@@ -10,6 +10,20 @@
 //// TODO:
 // here place your solution:
 
+// let arrayInArray = ['abc', 'def', 'gh'];
+// console.log('arrayInArray:', arrayInArray);
+
+// console.log('arrayInArray[1]:', arrayInArray[1]);
+
+// OR
+
+//1.
+const anArray = ['abc', 'def', 'gh'];
+// 2. 
+console.log(anArray);
+// 3.
+console.log(anArray[1])
+
 //// DONT MODIFY CODE BELOW!
 // Here You will find expected result of exercise
 
