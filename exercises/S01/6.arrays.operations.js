@@ -13,13 +13,23 @@
 //// TODO:
 // here place your solution:
 
+//1.
+const arrayOfElements = ['abc', 'def', 'gh'];
+//2.
+arrayOfElements.push('xyz');
+//3.
+console.log(JSON.stringify(arrayOfElements).replace(/,/g, ', '));
+//4. 
+const newArrays = [1, 2, 3];
+const newConcatArray = arrayOfElements.concat(newArrays);
+//5.
+console.log(JSON.stringify(newConcatArray).replace(/,/g, ', '));
+//6.
+newConcatArray[2] = '555'
+//7.
+console.log(JSON.stringify(newConcatArray).replace(/,/g, ', '));
 
-
-
-
-
-
-
+//JSON.stringify(newConcatArray).replace(/,/g, ', ')) - formatowanie na JSON
 
 
 //// DONT MODIFY CODE BELOW!
