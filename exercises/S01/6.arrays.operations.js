@@ -25,7 +25,7 @@ const newConcatArray = arrayOfElements.concat(newArrays);
 //5.
 console.log(JSON.stringify(newConcatArray).replace(/,/g, ', '));
 //6.
-newConcatArray[2] = '555'
+newConcatArray[2] = '555';
 //7.
 console.log(JSON.stringify(newConcatArray).replace(/,/g, ', '));
 

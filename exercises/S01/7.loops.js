@@ -9,11 +9,20 @@
 //// TODO:
 // here place your solution:
 
+// function elementChecker(anArray) {
+//  for (let index = 0; index < anArray.length; index++) {
+//   const element = anArray[index];
+//   console.log(element);
+// }
+// };
+
+// OR best solution
+
 function elementChecker(anArray) {
-
-}
-
-
+anArray.forEach((element) => {
+  console.log(element);
+});
+};
 
 
 //// DONT MODIFY CODE BELOW!
