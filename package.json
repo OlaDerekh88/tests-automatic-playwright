@@ -42,6 +42,7 @@
     "es1e5": "node exercises/S01/5.arrays.js",
     "es1e6": "node exercises/S01/6.arrays.operations.js",
     "es1e7": "node exercises/S01/7.loops.js",
+    "es1e8": "node exercises/S01/8.math.operations.js",
     "es2e1": "node exercises/S02/1.conditionals.js",
     "es2e2": "node exercises/S02/2.conditionals.and.equality.js",
     "es2e3": "node exercises/S02/3.objects.js",
