@@ -34,3 +34,5 @@ console.log('Thats all folks!')
 function getFullName(name, surname) {
     return `${name} ${surname}`
 }
+
+
