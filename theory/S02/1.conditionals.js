@@ -49,3 +49,42 @@ switch (someOtherNumber) {
 
 // articles and links:
 // https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/conditionals
+
+
+// x > 3 – czy x jest większy od 3,
+// x >= 3 – czy x jest większy lub równy 3,
+// x < 3 - czy x jest mniejszy niż 3,
+// x <= 3 - czy x jest mniejszy lub równy 3,
+// x !== 3 - czy x nie jest równy 3,
+// x > 0 && x < 3 - czy x jest większy od 0 i mniejszy 3,
+// x >= 0 && x <= 3 - czy x jest większy od 0 i mniejszy 3 (włącznie z wartościami granicznymi),
+// x < 0 || x > 3 - czy x jest mniejszy od 0 lub większy od 3.
+// Operatory && (który oznacza oraz) i || (który oznacza lub) służą do łączenia warunków.
+
+// Praktyczna zasada
+
+// if → gdy masz warunki, zakresy, logikę (>, <, &&, ||).
+// switch → gdy jedna zmienna może przyjąć wiele konkretnych wartości ("admin", "user", "guest" itd.).
+// W nowoczesnym JS często jeszcze lepiej:
+// Zamiast długiego switch można użyć obiektu:
+
+const rola = "user";
+const roleActions = {
+  admin: "Pełny dostęp",
+  user: "Zwykły dostęp",
+  guest: "Ograniczony dostęp"
+};
+
+console.log(roleActions["user"]);
+
+switch (rola) {
+  case "admin":
+    console.log("Pełny dostęp");
+    break;
+  case "user":
+    console.log("Zwykły dostęp");
+    break;
+  case "guest":
+    console.log("Ograniczony dostęp");
+    break;
+}
