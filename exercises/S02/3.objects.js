@@ -13,9 +13,37 @@
 //// TODO:
 // here place your solution:
 
+// const user = {
+// 	name: "Ola Test",
+// 	address: "otest@test.ua",
+// 	password: "Kotki1234",
+// };
+
+// const rights = ['write', 'read'];
+// user['rights'] = rights;
+
+// console.log(user);
+
+// console.log(user['name']);
+
+// user['name'] = 'admin';
+
+// console.log('name after change: ', user['name']);
 
 
+// OR
 
+const user = {
+	name: "Ola Test",
+	address: "otest@test.ua",
+	password: "Kotki1234",
+    rights: ['write', 'read']
+};
+
+console.log(user);
+console.log(user["name"]);
+user["name"] = "admin";
+console.log(user["name"]);
 
 //// DONT MODIFY CODE BELOW!
 // Here You will find expected result of exercise
