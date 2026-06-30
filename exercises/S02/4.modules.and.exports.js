@@ -1,5 +1,5 @@
 // Your task:
-// 1. Create new file with name "helpers.js" in this directory 
+// 1. Create new file with name "helpers.js" in this directory
 // 2. Inside "helpers.js" create function with name "printer" with one parameter. This function should print value of given parameter
 // 3. Inside "helpers.js" declare object with name "userData" that will contain fields: name and age
 // 4. Inside "helpers.js" export printer and userData
@@ -12,12 +12,9 @@
 //// TODO:
 // here place your solution:
 
+import { printer, userData } from './5.helpers.js';
 
-
-
-
-
-
+printer(userData);
 
 //// DONT MODIFY CODE BELOW!
 // Here You will find expected result of exercise

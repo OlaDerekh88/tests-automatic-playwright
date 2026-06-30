@@ -3,7 +3,6 @@
 // to import data from another module use import:
 import { sampleArray } from './4.sample.module.array.js'
 // make sure, that this object has 'export' in front!
-
 // we can import multiple elements at once:
 import { printArrayOnConsoleWithFor, printArrayOnConsoleWithForeach } from './4.sample.module.functions.js'
 
