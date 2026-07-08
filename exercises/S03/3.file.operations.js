@@ -11,8 +11,14 @@
 //// TODO:
 // here place your solution:
 
+import { readFileSync, writeFileSync } from "fs"
 
+const textToFile = "Hello jaktestowac.pl!";
 
+writeFileSync('exercises/S03/ex3.txt', textToFile);
+
+const dataFromFile = readFileSync('exercises/S03/ex3.txt',{encoding:'utf8'});
+console.log(dataFromFile)
 
 
 
