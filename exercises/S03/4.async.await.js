@@ -10,10 +10,20 @@
 //// TODO:
 // here place your solution:
 
+import  { getUserListFromApi } from "./4.async.helpers.js";
 
+const userList = await getUserListFromApi();
 
+console.log(userList[0]);
 
+// or 
 
+async function getUserList() {
+const userFirst = await getUserListFromApi();
+console.log(userFirst[0])
+}
+
+await getUserList();
 
 
 
