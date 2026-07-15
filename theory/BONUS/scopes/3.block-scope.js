@@ -23,3 +23,8 @@ if (true) {
 
 // The following line would cause an error because 'blockConstVariable' is not accessible outside the block.
 // console.log(blockConstVariable); // ❌ uncomment to see error: ReferenceError: blockConstVariable is not defined
+
+
+// Zakres Blokowy (Block Scope)
+// To obszar ograniczony przez klamry {} w np. instrukcjach warunkowych (if, for, while).
+// Zmienne zdefiniowane wewnątrz bloku są dostępne tylko w tym bloku.

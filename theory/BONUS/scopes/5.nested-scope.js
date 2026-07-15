@@ -12,5 +12,7 @@ function outerFunction() {
 
 outerFunction();
 
+// Zagnieżdżone zakresy występują tam, gdzie funkcja zdefiniowana wewnątrz innej funkcji ma dostęp do zmiennych z obu funkcji.
+
 // The following line would cause an error because 'outerVariable' is not accessible outside the function block.
 // console.log(outerVariable) // ❌ uncomment to see error: ReferenceError: outerVariable is not defined
