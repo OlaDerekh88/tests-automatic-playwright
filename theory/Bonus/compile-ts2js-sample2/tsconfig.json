@@ -1,0 +1,21 @@
+{
+    "compilerOptions": {
+        "module": "es2022",
+        "moduleResolution": "node",
+        "target": "ESNext",
+        "noImplicitAny": true,
+        "strict": true,
+        "typeRoots": ["node_modules/@types"],
+        "lib": ["es2020", "dom"],
+        "baseUrl": ".",
+        "rootDir": ".",
+        "allowJs": true,
+        "outDir": "dist"
+    },
+    "ts-node": {
+        "esm": true,
+        "experimentalSpecifierResolution": "node"
+    },
+    "exclude": ["./node_modules", "./dist"],
+    "include": ["./**/*"]
+}
