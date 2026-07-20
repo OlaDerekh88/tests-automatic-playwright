@@ -18,8 +18,22 @@
 
 //// TODO:
 //// -----------------------HERE PLACE YOUR SOLUTION:-------------------------
-
 //// -----------------------DON'T MODIFY CODE BELOW!-------------------------
+
+let userNameOfString: string;
+let userIdOfNumber: number;
+const userNameOfArrayOfString: string [] = [];
+const userIdOfArrayOfNumber: number [] = [];
+
+userNameOfString = "Bob";
+userIdOfNumber = 412;
+
+userNameOfArrayOfString.push(userNameOfString);
+userIdOfArrayOfNumber.push(userIdOfNumber);
+
+console.log(userNameOfArrayOfString);
+console.log(userIdOfArrayOfNumber);
+
 // Here you will find expected result of exercise
 
 // Expected output:
