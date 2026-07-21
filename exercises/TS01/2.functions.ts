@@ -25,6 +25,27 @@
 //// TODO:
 //// -----------------------HERE PLACE YOUR SOLUTION:-------------------------
 
+function formatStrings(pageName: string, componentName: string): string {
+    return `Opening page '${pageName}' and checking '${componentName}'`
+}
+
+const formatStringsOutput = formatStrings("LoginPage", "UserName")
+console.log(formatStringsOutput)
+
+const formatStringsAnonymous = function (pageName: string, componentName: string): string {
+    return `Opening page '${pageName}' and checking '${componentName}'`
+}
+
+const formatStringsAnonymousOutput = formatStringsAnonymous("HomePage", "UserName")
+console.log(formatStringsAnonymousOutput)
+
+const formatStringsArrow = (pageName: string, componentName: string): string => {
+    return `Opening page '${pageName}' and checking '${componentName}'`
+}
+
+const formatStringsArrowOutput = formatStringsArrow("ContactPage", "UserName")
+console.log(formatStringsArrowOutput)
+
 //// -----------------------DON'T MODIFY CODE BELOW!-------------------------
 // Here you will find expected result of exercise
 
