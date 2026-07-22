@@ -9,6 +9,7 @@
         "ex1-1": "tsx exercises/TS01/1.types.ts",
         "ex1-2": "tsx exercises/TS01/2.functions.ts",
         "ex1-3": "tsx exercises/TS01/3.enums.ts",
+        "ex1-4": "tsx exercises/TS01/4.functions.bonus.ts",
         "ex2-1": "tsx exercises/TS02/1.interfaces.ts",
         "ex2-2": "tsx exercises/TS02/2.classes.ts",
         "ex2-3": "tsx exercises/TS02/3.inheritance.ts",
