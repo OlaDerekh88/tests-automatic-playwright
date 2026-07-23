@@ -14,12 +14,12 @@ console.log(subtract(10, 4)) // 6
 // Dla przykładu – poniżej napisaliśmy 2 funkcje, na dodawanie i odejmowanie, które spełniają zadeklarowany typ:
 
 // Typ funkcji
-type Operation = (a: number, b: number) => number
-// Implementacja
-const subtract: Operation = (a, b) => a - b
-const sum: Operation = (a, b) => a + b
-console.log(subtract(10, 4)) // 6
-console.log(sum(10, 4)) // 14
+// type Operation = (a: number, b: number) => number
+// // Implementacja
+// const subtract: Operation = (a, b) => a - b
+// const sum: Operation = (a, b) => a + b
+// console.log(subtract(10, 4)) // 6
+// console.log(sum(10, 4)) // 14
 
 // Przeciążanie funkcji - (Перевантаження функцій) в TypeScript — це можливість оголосити одну й ту саму функцію, яка може приймати різні типи (або кількість) аргументів і повертати різний результат залежно від того, що саме в неї передали.Простими словами: замість того, щоб створювати три різні функції (наприклад, getUserById, getUserByEmail, getUserByName), ти створюєш одну функцію getUser, але описуєш кілька варіантів ("сигнатур"), як саме її можна викликати.
 // Якщо передаємо get('/users') - повертає список користувачів.
@@ -97,17 +97,17 @@ greet("John", logMessage) // Hello, John!
 // Definiujemy typ callbacka
 type ProcessDataCallback = (data: string) => void
 // Funkcja, która przyjmuje callback
-function fetchData(callback: ProcessDataCallback): void {
-    const data = "Sample Data"
-    console.log("Dane zostały pobrane.")
-    callback(data) // Wywołujemy callback z danymi
-}
-// Funkcja przetwarzająca dane
-const processData = (data: string): void => {
-    console.log(`Otrzymane dane: ${data}`)
-}
+// function fetchData(callback: ProcessDataCallback): void {
+//     const data = "Sample Data"
+//     console.log("Dane zostały pobrane.")
+//     callback(data) // Wywołujemy callback z danymi
+// }
+// // Funkcja przetwarzająca dane
+// const processData = (data: string): void => {
+//     console.log(`Otrzymane dane: ${data}`)
+// }
 // Wywołanie
-fetchData(processData)
+// fetchData(processData)
 // Wynik w konsoli:
 
 // Dane zostały pobrane.
@@ -117,16 +117,16 @@ fetchData(processData)
 
 // Typy callbacków
 type SuccessCallback = (result: string) => void
-type ErrorCallback = (error: string) => void
-// Funkcja symulująca operację z możliwością błędu
-function performOperation(success: SuccessCallback, error: ErrorCallback): void {
-    const isSuccess = Math.random() > 0.5 // Losowa szansa na sukces
-    if (isSuccess) {
-        success("Operacja zakończona sukcesem!")
-    } else {
-        error("Wystąpił błąd podczas operacji.")
-    }
-}
+// type ErrorCallback = (error: string) => void
+// // Funkcja symulująca operację z możliwością błędu
+// function performOperation(success: SuccessCallback, error: ErrorCallback): void {
+//     const isSuccess = Math.random() > 0.5 // Losowa szansa na sukces
+//     if (isSuccess) {
+//         success("Operacja zakończona sukcesem!")
+//     } else {
+//         error("Wystąpił błąd podczas operacji.")
+//     }
+// }
 // Callbacki
 const onSuccess = (message: string): void => {
     console.log(`Sukces: ${message}`)
@@ -135,7 +135,7 @@ const onError = (error: string): void => {
     console.error(`Błąd: ${error}`)
 }
 // Wywołanie
-performOperation(onSuccess, onError)
+// performOperation(onSuccess, onError)
 // Przykładowy wynik w konsoli (w zależności od losowości):
 
 // W przypadku sukcesu:
