@@ -18,6 +18,37 @@
 //// TODO:
 //// -----------------------HERE PLACE YOUR SOLUTION:-------------------------
 
+interface UserData {
+    id: number
+    fullName: string
+    pass: string
+    data?: string
+}
+const user1: UserData = {
+    id: 1,
+    fullName: "Kolin",
+    pass: "Kot123",
+    data: "admin"
+}
+const user2: UserData = {
+    id: 2,
+    fullName: "Soda",
+    pass: "Koz123"
+}
+
+console.log(user1)
+console.log(user2)
+
+console.log("\n--------Change value of id in both objects--------\n")
+
+const id1 = user1.id
+const id2 = user2.id
+
+user1.id = id2
+user2.id = id1
+
+console.log(user1)
+console.log(user2)
 //// -----------------------DON'T MODIFY CODE BELOW!-------------------------
 // Here you will find expected result of exercise
 
