@@ -22,6 +22,29 @@
 
 //// TODO:
 //// -----------------------HERE PLACE YOUR SOLUTION:-------------------------
+class TransactionData {
+    id: string
+    version: number
+
+    constructor(id:string) {
+        this.id = id
+        this.version = 0
+    }
+doOperation(): number {
+    console.log("Last version value: ",this.version)
+    this.version++
+    return this.version
+   }
+   }
+
+const transaction = new TransactionData("abc")
+transaction.doOperation()
+transaction.doOperation()
+transaction.doOperation()
+
+const version = transaction.doOperation()
+console.log(version) 
+
 
 //// -----------------------DON'T MODIFY CODE BELOW!-------------------------
 // Here you will find expected result of exercise
