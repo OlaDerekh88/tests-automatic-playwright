@@ -253,3 +253,28 @@ console.log("Card B typeof:", typeof cardB)
 
 // Ignore this line - used to be able to redeclare variables in this project
 export {}
+
+// Interfejs Person
+interface Person {
+  name: string;
+  age: number;
+}
+
+// Interfejs Employee rozszerzający Person
+interface Employee extends Person {
+  position: string;
+}
+
+// Przykładowy obiekt typu Person
+const person: Person = {
+  name: "John",
+  age: 30,
+};
+
+// Rzutowanie obiektu person na typ Employee
+const employee: Employee = person as Employee;
+employee.position = "Manager"; // Dodajemy właściwość position
+
+console.log("Employee name:", employee.name);   // Output: "John"
+console.log("Employee age:", employee.age);     // Output: 30
+console.log("Employee position:", employee.position); // Output: "Manager"
