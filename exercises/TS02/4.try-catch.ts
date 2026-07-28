@@ -27,7 +27,12 @@ function getRandomValue(primaryIndex: number, secondaryIndex: number): string {
 //// -----------------------HERE PLACE YOUR SOLUTION:-------------------------
 
 function getRandomValueProxy(primaryIndex: number, secondaryIndex: number): string {
-    return getRandomValue(primaryIndex, secondaryIndex)
+    try {
+        return getRandomValue(primaryIndex, secondaryIndex);
+    } catch {
+        console.log("An error occurred!");
+        return "error!";
+    }
 }
 
 //// -----------------------DON'T MODIFY CODE BELOW!-------------------------
@@ -49,3 +54,56 @@ console.log("Result for: [0, 0]", getRandomValueProxy(0, 0))
 // An error occurred!
 // Result for: [2, 2] error!
 // Result for: [0, 0] 11
+
+
+
+
+
+// Bonus
+// function getRandomValueProxy(primaryIndex: number, secendaryIndex: number): string {
+//     try {
+//         return getRandomValue(primaryIndex, secendaryIndex)
+//     } catch (error) {
+//         console.log("An error occurred!")
+//         return "error!"
+//     }
+// }
+
+// OR
+// function getRandomValueProxy(primaryIndex: number, secendaryIndex: number): string {
+//     try {
+//         return getRandomValue(primaryIndex, secendaryIndex)
+//     } catch (error) {
+//         console.log("An error occurred!")
+//     }
+//     return "error!"
+// }
+
+// OR
+
+// function getRandomValueProxy(primaryIndex: number, secendaryIndex: number): string {
+//     let result: string
+//     try {
+//         result = getRandomValue(primaryIndex, secendaryIndex)
+//     } catch (error) {
+//         console.log("An error occurred!")
+//         result = "error!"
+//     }
+//     return result
+// }
+
+// OR
+// function getRandomValueProxy(primaryIndex: number, secendaryIndex: number): string {
+//     let result: string
+//     try {
+//         result = getRandomValue(primaryIndex, secendaryIndex)
+//     } catch (error) {
+//         if (error instanceof TypeError) {
+//             console.log("An error of type TypeError occurred!")
+//         } else {
+//             console.log("An error occurred!")
+//         }
+//         result = "error!"
+//     }
+//     return result
+// }

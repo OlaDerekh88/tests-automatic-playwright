@@ -109,3 +109,59 @@ try {
 
 // Ignore this line - used to be able to redeclare variables in this project
 export {}
+
+
+
+function divideNumbers(a: number, b: number): number {
+  if (b === 0) {
+      throw new Error("Division by zero is not allowed!");
+  }
+  return a / b;
+}
+
+function performDivision(a: number, b: number): number {
+  try {
+      return divideNumbers(a, b);
+  } catch (error) {
+      let errorTyped = error as Error
+      console.error("An error occurred:", errorTyped.message);
+
+      return NaN; // Return a special value to indicate an error
+  }
+}
+
+const num1 = 10;
+const num2 = 0;
+
+const result = performDivision(num1, num2);
+
+if (isNaN(result)) {
+  console.log("Division failed!");
+} else {
+  console.log("Result:", result);
+}
+
+
+
+// try {
+//   // Kod, który może rzucić błąd
+// } catch (error) {
+//   if (error instanceof SpecificErrorType) {
+//     // Obsługa błędu dla określonego typu
+//   } else {
+//     // Obsługa ogólna dla innych typów błędów lub rethrow
+//     throw error;
+//   }
+// }
+
+// try {
+//   // Kod, który może rzucić błąd
+// } catch (error) {
+//   // Obsługa błędu
+//   if (canHandleError(error)) {
+//     // Obsługa błędu w tym bloku
+//   } else {
+//     // Rethrow oryginalny błąd
+//     throw error;
+//   }
+// }
