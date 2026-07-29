@@ -8,6 +8,8 @@
 // 3. Use that function in this script:
 // -- pass a list of values and check if function returns largest number
 
+import { getBiggestNumber, getBiggestNumber2 } from "./helpers/data.helpers";
+
 // ❓ Questions:
 // ❓ Do you know how to quickly find max value in list?
 
@@ -18,11 +20,15 @@ const values = [8, 4, 3, 4, 2, -2, 2]
 let largestValue
 //// TODO:
 //// -----------------------HERE PLACE YOUR SOLUTION:-------------------------
+largestValue = getBiggestNumber(values)
+
+largestValue = getBiggestNumber2(values)
 
 //// -----------------------DON'T MODIFY CODE BELOW!-------------------------
 // Here you will find expected result of exercise
 
 console.log("Largest value of ", values, " is ", largestValue)
+
 
 // Expected output:
 // On console 👀 you should see:
