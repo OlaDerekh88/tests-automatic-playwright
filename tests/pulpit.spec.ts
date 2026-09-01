@@ -4,15 +4,20 @@ import { LoginPage } from '../pages/login.page';
 import { PulpitPage } from '../pages/pulpit.page';
 
 test.describe('Pulpit tests', () => {
+  let pulpitPage: PulpitPage;
+
   test.beforeEach(async ({ page }) => {
     const userId = loginData.userId;
     const userPassword = loginData.userPassword;
 
     await page.goto('/');
     const loginPage = new LoginPage(page);
-    await loginPage.loginInput.fill(userId);
-    await loginPage.passwordInput.fill(userPassword);
-    await loginPage.loginButton.click();
+    await loginPage.login(userId, userPassword);
+    // await loginPage.loginInput.fill(userId);
+    // await loginPage.passwordInput.fill(userPassword);
+    // await loginPage.loginButton.click();
+
+    pulpitPage = new PulpitPage(page);
     // const pulpit = (new PulpitPage(page));
     // await pulpit.userNameText.waitFor({state:'visible'});
   });
@@ -26,7 +31,6 @@ test.describe('Pulpit tests', () => {
 
     //Act
     await page.waitForLoadState('domcontentloaded'); // zaladowanie strony
-    const pulpitPage = new PulpitPage(page);
     await pulpitPage.transferReceiverInput.selectOption(receiverId);
     await pulpitPage.transferAmountInput.fill(transferAmount);
     await pulpitPage.transferTitleInput.fill(transferTitle);
@@ -50,7 +54,6 @@ test.describe('Pulpit tests', () => {
 
     await page.waitForLoadState('domcontentloaded'); // zaladowanie strony
 
-    const pulpitPage = new PulpitPage(page);
     await pulpitPage.topUpReceiverInput.selectOption(topUpReceiver);
     await pulpitPage.topUpAmountInput.fill(topUpAmount);
     await pulpitPage.topUpAgreementCheckbox.check();
