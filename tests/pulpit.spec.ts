@@ -13,13 +13,8 @@ test.describe('Pulpit tests', () => {
     await page.goto('/');
     const loginPage = new LoginPage(page);
     await loginPage.login(userId, userPassword);
-    // await loginPage.loginInput.fill(userId);
-    // await loginPage.passwordInput.fill(userPassword);
-    // await loginPage.loginButton.click();
 
     pulpitPage = new PulpitPage(page);
-    // const pulpit = (new PulpitPage(page));
-    // await pulpit.userNameText.waitFor({state:'visible'});
   });
 
   test('quick payment with correct data', async ({ page }) => {
@@ -31,12 +26,12 @@ test.describe('Pulpit tests', () => {
 
     //Act
     await page.waitForLoadState('domcontentloaded'); // zaladowanie strony
-    await pulpitPage.transferReceiverInput.selectOption(receiverId);
-    await pulpitPage.transferAmountInput.fill(transferAmount);
-    await pulpitPage.transferTitleInput.fill(transferTitle);
 
-    await pulpitPage.transferButton.click();
-    await pulpitPage.actionCloseButton.click();
+    await pulpitPage.executeQuickPayment(
+      receiverId,
+      transferAmount,
+      transferTitle,
+    );
 
     //Assert
     await expect(pulpitPage.messageText).toHaveText(
@@ -53,13 +48,7 @@ test.describe('Pulpit tests', () => {
     //Act
 
     await page.waitForLoadState('domcontentloaded'); // zaladowanie strony
-
-    await pulpitPage.topUpReceiverInput.selectOption(topUpReceiver);
-    await pulpitPage.topUpAmountInput.fill(topUpAmount);
-    await pulpitPage.topUpAgreementCheckbox.check();
-
-    await pulpitPage.topUpExecuteButton.click();
-    await pulpitPage.actionCloseButton.click();
+    await pulpitPage.executeMobileTopUp(topUpReceiver, topUpAmount);
 
     //Assert
 
@@ -73,26 +62,13 @@ test.describe('Pulpit tests', () => {
     const pulpitPage = new PulpitPage(page);
     const topUpReceiver = '500 xxx xxx';
     const topUpAmount = '50';
-    // let initialBalance = null;
-    // await expect(async () => {
-    //   if (!pulpitPage.moneyValueText.isVisible()) {
-    //     await page.reload();
-    //     console.log('refresh');
-    //   }
-    //   initialBalance = await pulpitPage.moneyValueText.innerText();
-    // }).toPass();
     const initialBalance = await pulpitPage.moneyValueText.innerText();
     const expectedBalance = Number(initialBalance) - Number(topUpAmount);
 
     //Act
     await page.waitForLoadState('domcontentloaded'); // zaladowanie strony
 
-    await pulpitPage.topUpReceiverInput.selectOption(topUpReceiver);
-    await pulpitPage.topUpAmountInput.fill(topUpAmount);
-    await pulpitPage.topUpAgreementCheckbox.click();
-
-    await pulpitPage.topUpExecuteButton.click();
-    await pulpitPage.actionCloseButton.click();
+    await pulpitPage.executeMobileTopUp(topUpReceiver, topUpAmount);
 
     //Assert
 

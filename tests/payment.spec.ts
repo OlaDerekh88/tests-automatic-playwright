@@ -14,10 +14,7 @@ test.describe('Payment tests', () => {
     await page.goto('/');
     const loginPage = new LoginPage(page);
     await loginPage.login(userId, userPassword);
-    // await loginPage.loginInput.fill(userId);
-    // await loginPage.passwordInput.fill(userPassword);
-    // await loginPage.loginButton.click();
-
+    
     const pulpitPage = new PulpitPage(page);
     await pulpitPage.sideMenuComponent.paymentLink.click();
 
@@ -32,20 +29,8 @@ test.describe('Payment tests', () => {
     const expectedMessage = `Przelew wykonany! ${transferAmount},00PLN dla Jan Nowak`;
 
     //Act
+    await paymentPage.makeTransfer(transferReceiver, transferAccount, transferAmount)
     
-    await paymentPage.transferReceiverInput.fill(transferReceiver);
-    await paymentPage.transferToInput.fill(transferAccount);
-    await paymentPage.transferAmountInput.fill(transferAmount);
-
-    await paymentPage.transferButton.click();
-    await paymentPage.actionCloseButton.click();
-    // await page.getByTestId('transfer_receiver').fill(transferReceiver);
-    // await page.getByTestId('form_account_to').click();
-    // await page.getByTestId('form_account_to').fill(transferAccount);
-    // await page.getByTestId('form_amount').fill(transferAmount);
-    // await page.getByRole('button', { name: 'wykonaj przelew' }).click();
-    // await page.getByTestId('close-button').click();
-
     //Assert
     await expect(paymentPage.messageText).toHaveText(expectedMessage);
   });

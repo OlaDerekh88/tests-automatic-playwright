@@ -22,7 +22,6 @@ export class PulpitPage {
   sideMenuComponent: SideMenuComponent;
 
   constructor(private page: Page) {
-    
     this.transferReceiverInput = this.page.locator(
       '#widget_1_transfer_receiver',
     );
@@ -47,5 +46,30 @@ export class PulpitPage {
     this.userNameText = this.page.getByTestId('user-name');
 
     this.sideMenuComponent = new SideMenuComponent(this.page);
+  }
+
+  async executeQuickPayment(
+    receiverId: string,
+    transferAmount: string,
+    transferTitle: string,
+  ): Promise<void> {
+    await this.transferReceiverInput.selectOption(receiverId);
+    await this.transferAmountInput.fill(transferAmount);
+    await this.transferTitleInput.fill(transferTitle);
+
+    await this.transferButton.click();
+    await this.actionCloseButton.click();
+  }
+
+  async executeMobileTopUp(
+    topUpReceiver: string,
+    topUpAmount: string,
+  ): Promise<void> {
+    await this.topUpReceiverInput.selectOption(topUpReceiver);
+    await this.topUpAmountInput.fill(topUpAmount);
+    await this.topUpAgreementCheckbox.check();
+
+    await this.topUpExecuteButton.click();
+    await this.actionCloseButton.click();
   }
 }
