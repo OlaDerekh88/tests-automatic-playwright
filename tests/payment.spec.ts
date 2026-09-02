@@ -5,7 +5,7 @@ import { PaymentPage } from '../pages/payment.page';
 import { PulpitPage } from '../pages/pulpit.page';
 
 test.describe('Payment tests', () => {
-  let paymentPage:PaymentPage;
+  let paymentPage: PaymentPage;
 
   test.beforeEach(async ({ page }) => {
     const userId = loginData.userId;
@@ -14,24 +14,35 @@ test.describe('Payment tests', () => {
     await page.goto('/');
     const loginPage = new LoginPage(page);
     await loginPage.login(userId, userPassword);
-    
+
     const pulpitPage = new PulpitPage(page);
     await pulpitPage.sideMenuComponent.paymentLink.click();
 
     paymentPage = new PaymentPage(page);
   });
 
-  test('simple payment', async ({ page }) => {
-    //Arrange
-    const transferReceiver = 'Jan Nowak';
-    const transferAccount = '12 3344 5566 7788 8899 0097 65555';
-    const transferAmount = '222';
-    const expectedMessage = `Przelew wykonany! ${transferAmount},00PLN dla Jan Nowak`;
+  test(
+    'simple payment ',
+    {
+      tag: ['@payment', '@integration'],
+      annotation: { type: 'documentation', description: 'More to find at: https://jaktestowac.pl/lesson/pw1s04l04/' },
+    },
+    async ({ page }) => {
+      //Arrange
+      const transferReceiver = 'Jan Nowak';
+      const transferAccount = '12 3344 5566 7788 8899 0097 65555';
+      const transferAmount = '222';
+      const expectedMessage = `Przelew wykonany! ${transferAmount},00PLN dla Jan Nowak`;
 
-    //Act
-    await paymentPage.makeTransfer(transferReceiver, transferAccount, transferAmount)
-    
-    //Assert
-    await expect(paymentPage.messageText).toHaveText(expectedMessage);
-  });
+      //Act
+      await paymentPage.makeTransfer(
+        transferReceiver,
+        transferAccount,
+        transferAmount,
+      );
+
+      //Assert
+      await expect(paymentPage.messageText).toHaveText(expectedMessage);
+    },
+  );
 });
