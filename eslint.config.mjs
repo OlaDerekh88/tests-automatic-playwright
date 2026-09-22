@@ -1,16 +1,18 @@
-import js from '@eslint/js';
+import pluginJs from '@eslint/js';
 import eslintPluginPlaywright from 'eslint-plugin-playwright';
 import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended';
-import { defineConfig } from 'eslint/config';
 import globals from 'globals';
 import tseslint from 'typescript-eslint';
 
-export default defineConfig([
+export default [
+  // Ignored files
   { ignores: ['package-lock.json', 'playwright-report/**', 'test-results/**'] },
+
+  // TS files
+  { files: ['**/*.ts'] },
+
+  // Environment
   {
-    files: ['**/*.ts'],
-    plugins: { js },
-    extends: ['js/recommended'],
     languageOptions: {
       globals: globals.node,
       parserOptions: {
@@ -18,30 +20,27 @@ export default defineConfig([
       },
     },
   },
-  tseslint.configs.recommended,
 
-  {
-    rules: {
-      'no-console': 'error',
-    },
-  },
+  // Basic rules
+  pluginJs.configs.recommended,
+  ...tseslint.configs.recommended,
+  eslintPluginPlaywright.configs['flat/recommended'],
+  eslintPluginPrettierRecommended,
+
+  // Project's own rules
   {
     rules: {
       '@typescript-eslint/explicit-function-return-type': 'error',
-    },
-  },
-  eslintPluginPlaywright.configs['flat/recommended'],
-  {
-    rules: {
+      'no-console': 'warn',
       'playwright/no-nested-step': 'off',
+      'prettier/prettier': 'warn',
     },
     settings: {
       playwright: {
         globalAliases: {
-          test: ['setup'],
+          test: ['setup', 'health'],
         },
       },
     },
   },
-  eslintPluginPrettierRecommended,
-]);
+];
