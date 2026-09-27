@@ -1,10 +1,12 @@
 {
   "compilerOptions": {
     "target": "ESNext",
+    "types": ["node"],
     "strict": true,
     "module": "CommonJS",
     "sourceMap": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "allowSyntheticDefaultImports": true,
   },
   "exclude": ["node_modules", "playwright-report", "test-results"]
 }

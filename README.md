@@ -22,6 +22,8 @@ Follow instructions in app README
 - added a lint command to Husky pre-commit hook: `echo "npm run lint" > .husky/pre-commit`
 - UTF-8: `Set-Content -Path .husky/pre-commit -Value "npm run lint" -Encoding utf8`
   or `node -e "fs.writeFileSync('.husky/pre-commit', 'npm run lint\n', 'utf8')"`
+- prepare local env file: 'cp .env-template .env'
+- copy application main URL as value of 'BASE_URL' variable in '.env' file
 
 ## Use
 
