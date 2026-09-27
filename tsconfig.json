@@ -6,7 +6,7 @@
     "module": "CommonJS",
     "sourceMap": true,
     "skipLibCheck": true,
-    "allowSyntheticDefaultImports": true,
+    "allowSyntheticDefaultImports": true
   },
   "exclude": ["node_modules", "playwright-report", "test-results"]
 }
