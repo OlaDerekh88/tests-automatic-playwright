@@ -37,7 +37,7 @@ npx playwright test
 Run all tests with tags:
 
 ```
-npx playwright test --grep "@GAD-R01-01"
+npx playwright test --grep "@GAD-R01-02"
 
 ```
 
@@ -46,6 +46,12 @@ Run all tests without tags:
 ```
 npx playwright test --grep-invert "@GAD-R01"
 
+```
+
+Run test with tags several times:
+
+```
+npx playwright test --grep "@GAD-R03-01" --repeat-each=5
 ```
 
 For more usage cases look in `package.json` scripts section.
