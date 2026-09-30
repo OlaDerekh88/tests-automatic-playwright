@@ -1,4 +1,4 @@
-import { RegisterUser } from '../src/models/user.models';
+import { RegisterUser } from '../src/models/user.model';
 import { LoginPage } from '../src/pages/login.page';
 import { RegisterPage } from '../src/pages/register.page';
 import { WelcomePage } from '../src/pages/welcome.page';
@@ -39,10 +39,10 @@ test.describe('Verify register and login', () => {
       expect.soft(titleLogin).toContain('Login');
 
       //Assert
-      await loginPage.login(
-        registerUserData.userEmail,
-        registerUserData.userPassword,
-      );
+      await loginPage.login({
+        userEmail: registerUserData.userEmail,
+        userPassword: registerUserData.userPassword,
+      });
 
       const welcomePage = new WelcomePage(page);
       const titleWelcome = await welcomePage.title();
