@@ -6,7 +6,6 @@ export class ArticlesPage extends BasePage {
   url = '/articles.html';
   mainMenu = new MainMenuComponent(this.page);
   addArticleButtonLogged = this.page.locator('#add-new');
-
   constructor(page: Page) {
     super(page);
   }
