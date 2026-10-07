@@ -9,7 +9,7 @@ import { expect, test } from '@playwright/test';
 
 test.describe('Verify articles', () => {
   let loginPage: LoginPage;
-  let articlesPage: ArticlePage;
+  let articlesPage: ArticlesPage;
   let addArticleView: AddArticleView;
   let articleData: AddArticleModel;
 
