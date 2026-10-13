@@ -1,5 +1,5 @@
-import { randomUserData } from '../src/factories/user.factory';
-import { RegisterUser } from '../src/models/user.model';
+import { prepareRandomUser } from '../src/factories/user.factory';
+import { RegisterUserModel } from '../src/models/user.model';
 import { LoginPage } from '../src/pages/login.page';
 import { RegisterPage } from '../src/pages/register.page';
 import { WelcomePage } from '../src/pages/welcome.page';
@@ -7,11 +7,11 @@ import { expect, test } from '@playwright/test';
 
 test.describe('Verify register and login', () => {
   let registerPage: RegisterPage;
-  let registerUserData: RegisterUser;
+  let registerUserData: RegisterUserModel;
 
   test.beforeEach(async ({ page }) => {
     registerPage = new RegisterPage(page);
-    registerUserData = randomUserData();
+    registerUserData = prepareRandomUser();
     await registerPage.goto();
   });
 
@@ -31,18 +31,20 @@ test.describe('Verify register and login', () => {
       //Assert
       await expect(registerPage.alertPopup).toHaveText(expectedAlertPopupText);
 
+      const expectedLoginTitle = 'Login';
       await loginPage.waitForPageToLoadUrl();
-      const titleLogin = await loginPage.title();
-      expect.soft(titleLogin).toContain('Login');
+      const titleLogin = await loginPage.getTitle();
+      expect.soft(titleLogin).toContain(expectedLoginTitle);
 
       //Assert test login
+      const expectedWelcomeTitle = 'Welcome';
       await loginPage.login({
         userEmail: registerUserData.userEmail,
         userPassword: registerUserData.userPassword,
       });
 
-      const titleWelcome = await welcomePage.title();
-      expect(titleWelcome).toContain('Welcome');
+      const titleWelcome = await welcomePage.getTitle();
+      expect(titleWelcome).toContain(expectedWelcomeTitle);
     },
   );
 
