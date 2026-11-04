@@ -47,15 +47,10 @@ export class ArticlePage extends BasePage {
     };
   }
 
-  async clickCommentLink(commentLink: Locator): Promise<CommentPage> {
-    await commentLink.click();
+  async clickCommentLink(
+    commentContainer: ArticleComment,
+  ): Promise<CommentPage> {
+    await commentContainer.link.click();
     return new CommentPage(this.page);
   }
-
-  // async clickCommentLink(
-  //   commentContainer: ArticleComment,
-  // ): Promise<CommentPage> {
-  //   await commentContainer.link.click();
-  //   return new CommentPage(this.page);
-  // }
 }
