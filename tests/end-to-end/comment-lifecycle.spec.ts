@@ -19,7 +19,7 @@ test.describe('Create, verify and delete comment', () => {
         await expect
           .soft(addCommentView.addNewHeader)
           .toHaveText(expectedAddCommentHeader);
-        articlePage = await addCommentView.createdComment(newCommentData);
+        articlePage = await addCommentView.createComment(newCommentData);
 
         //Assert
         await expect
@@ -86,7 +86,7 @@ test.describe('Create, verify and delete comment', () => {
         const newCommentData = prepareRandomComment();
         //Act
         const addCommentView = await articlePage.clickAddCommentButton();
-        articlePage = await addCommentView.createdComment(newCommentData);
+        articlePage = await addCommentView.createComment(newCommentData);
 
         //Assert
         await expect
@@ -99,8 +99,7 @@ test.describe('Create, verify and delete comment', () => {
           await test.step('create comment', async () => {
             const secondCommentData = prepareRandomComment();
             const addCommentView = await articlePage.clickAddCommentButton();
-            articlePage =
-              await addCommentView.createdComment(secondCommentData);
+            articlePage = await addCommentView.createComment(secondCommentData);
             return secondCommentData.body;
           });
 
