@@ -1,4 +1,3 @@
-import { RESPONSE_TIMEOUT } from '@_pw-config';
 import { prepareRandomArticle } from '@_src/factories/article.factory';
 import { expect, test } from '@_src/fixtures/merge.fixtures';
 import { waitForResponse } from '@_src/utils/wait.util';
@@ -15,7 +14,7 @@ test.describe('Verify articles', () => {
       const articleData = prepareRandomArticle();
       articleData.title = '';
 
-      const responsePromise = waitForResponse(page, '/api/articles');
+      const responsePromise = waitForResponse({ page, url: '/api/articles' });
 
       //Act
       await addArticleView.createArticle(articleData);
@@ -38,7 +37,7 @@ test.describe('Verify articles', () => {
       const articleData = prepareRandomArticle();
       articleData.body = '';
 
-      const responsePromise = waitForResponse(page, '/api/articles');
+      const responsePromise = waitForResponse({ page, url: '/api/articles' });
 
       //Act
       await addArticleView.createArticle(articleData);
@@ -61,7 +60,7 @@ test.describe('Verify articles', () => {
 
         const articleData = prepareRandomArticle(129);
 
-        const responsePromise = waitForResponse(page, '/api/articles');
+        const responsePromise = waitForResponse({ page, url: '/api/articles' });
 
         //Act
         await addArticleView.createArticle(articleData);
@@ -83,7 +82,7 @@ test.describe('Verify articles', () => {
         const expectedResponseCode = 201;
         const articleData = prepareRandomArticle(128);
 
-        const responsePromise = waitForResponse(page, '/api/articles');
+        const responsePromise = waitForResponse({ page, url: '/api/articles' });
 
         //Act
         const articlePage = await addArticleView.createArticle(articleData);
@@ -105,15 +104,14 @@ test.describe('Verify articles', () => {
       // Arrange
       const articleData = prepareRandomArticle();
 
-      const responsePromise = page.waitForResponse(
-        (response) => {
-          return (
-            response.url().includes('/api/articles') &&
-            response.request().method() == 'GET'
-          );
-        },
-        { timeout: RESPONSE_TIMEOUT },
-      );
+      const waitParams = {
+        page,
+        url: '/api/articles',
+        method: 'GET',
+        text: articleData.title,
+      };
+
+      const responsePromise = waitForResponse(waitParams);
 
       //Act
       const articlePage = await addArticleView.createArticle(articleData);
